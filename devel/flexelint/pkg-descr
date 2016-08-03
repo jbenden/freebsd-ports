@@ -1,0 +1,7 @@
+PC-lint and FlexeLint are powerful static analysis tools that will
+check your C/C++ source code and find bugs, glitches,
+inconsistencies, non-portable constructs, redundant code, and much
+more. It looks across multiple modules, and so, enjoys a perspective
+your compiler does not have.
+
+WWW: http://www.gimpel.com/html/flex.htm
