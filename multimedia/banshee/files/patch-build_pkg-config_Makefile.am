@@ -1,0 +1,8 @@
+--- build/pkg-config/Makefile.am.orig	2016-08-06 17:57:19 UTC
++++ build/pkg-config/Makefile.am
+@@ -1,4 +1,4 @@
+-pkgconfigdir = $(libdir)/pkgconfig
++pkgconfigdir = $(prefix)/libdata/pkgconfig
+ pkgconfig_in_files = $(wildcard banshee-*.pc.in)
+ pkgconfig_DATA = $(pkgconfig_in_files:.pc.in=.pc)
+ 

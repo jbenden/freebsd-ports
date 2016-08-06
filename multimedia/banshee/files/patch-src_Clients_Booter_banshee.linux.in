@@ -1,6 +1,6 @@
---- src/Clients/Booter/banshee.linux.in.orig
+--- src/Clients/Booter/banshee.linux.in.orig	2014-02-18 20:40:14 UTC
 +++ src/Clients/Booter/banshee.linux.in
-@@ -54,7 +54,7 @@
+@@ -54,7 +54,7 @@ if [ -n "$BANSHEE_DEBUG" -o -n "$BANSHEE
  fi
  
  # Finally - environment is set up, time to run our beloved

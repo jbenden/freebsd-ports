@@ -30,14 +30,15 @@ GIO_DESC=	Use GIO for disk access
 WEBKIT_DESC=	Build and/or install extensions using Webkit
 YOUTUBE_DESC=	Build and/or install the Youtube extension
 
-OPTIONS_DEFAULT=BPMDETECT GIO MTP WEBKIT YOUTUBE
+OPTIONS_DEFAULT=BPMDETECT GIO MTP WEBKIT
 
-USES=		desktop-file-utils gmake libtool mono pathfix perl5 \
-		pkgconfig shared-mime-info sqlite tar:xz
+USES=		autoreconf:build desktop-file-utils gmake libtool mono pathfix perl5 \
+		pkgconfig shared-mime-info shebangfix sqlite tar:xz
+SHEBANG_FILES=  autogen.sh
 USE_PERL5=	build
 GNU_CONFIGURE=	yes
 USE_GNOME=	gnomedocutils gnomesharp20 gtksharp20 intltool
-USE_GSTREAMER=	cdparanoia
+USE_GSTREAMER1=	cdparanoia
 USE_LDCONFIG=	${PREFIX}/lib/${PORTNAME:C/-.*//}
 USE_XORG=	xrandr xxf86vm
 INSTALLS_ICONS=	yes
@@ -47,6 +48,7 @@ CONFIGURE_ARGS=	--with-vendor-build-id=FreeBSD\ BSD\#\ Project --disable-gio-har
 CONFIGURE_ENV=	ac_cv_path_MCS=${LOCALBASE}/bin/mcs
 CPPFLAGS+=	-I${LOCALBASE}/include
 LIBS+=		-L${LOCALBASE}/lib
+MAKE_JOBS_UNSAFE=yes
 
 .include <bsd.port.options.mk>
 
@@ -79,7 +81,7 @@ PLIST_SUB+=	OPT_DOCS="@comment "
 .endif
 
 .if ${PORT_OPTIONS:MBPMDETECT}
-USE_GSTREAMER+=	soundtouch
+USE_GSTREAMER1+=	soundtouch
 .endif
 
 .if ${PORT_OPTIONS:MAPPLEDEV}
@@ -124,6 +126,9 @@ PLIST_SUB+=	OPT_WEBKITORYOUTUBE=""
 .else
 PLIST_SUB+=	OPT_WEBKITORYOUTUBE="@comment "
 .endif
+
+pre-configure:
+	cd ${CONFIGURE_WRKSRC} && env NOCONFIGURE=1 ./autogen.sh
 
 post-patch:
 	${FIND} ${WRKSRC} -name 'Makefile.in' | ${XARGS} ${REINPLACE_CMD} -e 's|-r:Mono.Cairo|-r:${PREFIX}/lib/mono/gac/Mono.Cairo/4.0.0.0__0738eb9f132ed756/Mono.Cairo.dll|'
