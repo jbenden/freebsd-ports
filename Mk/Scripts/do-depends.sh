@@ -11,7 +11,8 @@ validate_env dp_RAWDEPENDS dp_DEPTYPE dp_DEPENDS_TARGET dp_DEPENDS_PRECLEAN \
 	dp_DEPENDS_CLEAN dp_DEPENDS_ARGS dp_USE_PACKAGE_DEPENDS \
 	dp_USE_PACKAGE_DEPENDS_ONLY dp_PKG_ADD dp_PKG_INFO dp_WRKDIR \
 	dp_PKGNAME dp_STRICT_DEPENDS dp_LOCALBASE dp_LIB_DIRS dp_SH \
-	dp_SCRIPTSDIR PORTSDIR dp_MAKE
+	dp_SCRIPTSDIR PORTSDIR dp_MAKE dp_PKG_FETCH dp_FETCH_PACKAGE_DEPENDS \
+	PACKAGES
 
 [ -n "${DEBUG_MK_SCRIPTS}" -o -n "${DEBUG_MK_SCRIPTS_DO_DEPENDS}" ] && set -x
 
@@ -28,10 +29,11 @@ install_depends()
 	fi
 
 	port_var_fetch "${origin}" "${depends_args}" \
-	    PKGFILE pkgfile \
-	    PKGBASE pkgbase
+		PKGFILE pkgfile \
+		PKGBASE pkgbase \
+		PKGNAME pkgname
 
-	if [ -r "${pkgfile}" -a "${target}" = "${dp_DEPENDS_TARGET}" ]; then
+	if [ -r "${pkgfile}" ] || [ ! -z "${dp_FETCH_PACKAGE_DEPENDS}" ] && [ "${target}" = "${dp_DEPENDS_TARGET}" ]; then
 		echo "===>   Installing existing package ${pkgfile}"
 		if [ "${pkgbase}" = "pkg" ]; then
 			[ -d ${dp_WRKDIR} ] || mkdir -p ${dp_WRKDIR}
@@ -39,6 +41,12 @@ install_depends()
 			${dp_WRKDIR}/pkg-static add ${pkgfile}
 			rm -f ${dp_WRKDIR}/pkg-static
 		else
+			if [ ! -z "${dp_FETCH_PACKAGE_DEPENDS}" ] && [ ! -r "${pkgfile}" ]; then
+				 [ -d "${PACKAGES}" ] || mkdir -p "${PACKAGES}"
+				 set +e
+				 ${dp_PKG_FETCH} --output ${PACKAGES} --dependencies --quiet --yes --case-sensitive ${pkgname}
+				 set -e
+			fi
 			${dp_PKG_ADD} -A ${pkgfile}
 		fi
 	elif [ -n "${dp_USE_PACKAGE_DEPENDS_ONLY}" -a "${target}" = "${dp_DEPENDS_TARGET}" ]; then

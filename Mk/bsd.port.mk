@@ -1035,6 +1035,12 @@ FreeBSD_MAINTAINER=	portmgr@FreeBSD.org
 #				  if an existing package is not present.
 # USE_PACKAGE_DEPENDS_ONLY
 #				- Like USE_PACKAGE_DEPENDS, but do not fallback on source.
+# FETCH_PACKAGE_DEPENDS
+#				- Like USE_PACKAGE_DEPENDS, but use PKG-NG repositories
+#				  to satisfy the dependencies, when possible. Use of this
+#				  option does store the acquired PKGs within the PACKAGES
+#				  path and therefore does not cause an increase of network
+#				  traffic with repeated builds.
 # INSTALL_AS_USER
 #				- Define this to install as the current user, intended
 #				  for systems where you have no root access.
@@ -3972,6 +3978,9 @@ ${deptype:tl}-depends:
 		dp_SCRIPTSDIR="${SCRIPTSDIR}" \
 		PORTSDIR="${PORTSDIR}" \
 		dp_MAKE="${MAKE}" \
+		dp_PKG_FETCH="${PKG_FETCH}" \
+		dp_FETCH_PACKAGE_DEPENDS="${FETCH_PACKAGE_DEPENDS}" \
+		PACKAGES="${PACKAGES}" \
 		${SH} ${SCRIPTSDIR}/do-depends.sh
 .endif
 .endfor
