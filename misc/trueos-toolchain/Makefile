@@ -20,7 +20,8 @@ RUN_DEPENDS=	sphinx-build:${PORTSDIR}/textproc/py-sphinx \
 		${PYTHON_PKGNAMEPREFIX}alabaster>=0:${PORTSDIR}/textproc/py-alabaster \
 		${PYTHON_PKGNAMEPREFIX}sphinxcontrib-httpdomain>=0:${PORTSDIR}/textproc/py-sphinxcontrib-httpdomain \
 		tex-formats>=0:${PORTSDIR}/print/tex-formats \
-		tex-dvipsk>=0:${PORTSDIR}/print/tex-dvipsk
+		tex-dvipsk>=0:${PORTSDIR}/print/tex-dvipsk \
+		jq>=0:${PORTSDIR}/textproc/jq
 
 USE_QT5=	buildtools concurrent core dbus designer graphicaleffects gui imageformats multimedia \
 		network printsupport svg webkit widgets x11extras xml linguist qmake
