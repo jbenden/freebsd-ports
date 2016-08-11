@@ -1314,10 +1314,12 @@ WWWDIR?=		${PREFIX}/www/${PORTNAME}
 ETCDIR?=		${PREFIX}/etc/${PORTNAME}
 
 .if defined(USE_LINUX_RPM)
+BROKEN=		Linux Compat Apps disabled in favor of apt-get
 .include "${PORTSDIR}/Mk/bsd.linux-rpm.mk"
 .endif
 
 .if defined(USE_LINUX_APPS)
+BROKEN=		Linux Compat Apps disabled in favor of apt-get
 .include "${PORTSDIR}/Mk/bsd.linux-apps.mk"
 .endif
 
@@ -1908,10 +1910,12 @@ _FORCE_POST_PATTERNS=	rmdir kldxref mkfontscale mkfontdir fc-cache \
 .endif
 
 .if defined(USE_LINUX_RPM)
+BROKEN=		Linux Compat Apps disabled in favor of apt-get
 .include "${PORTSDIR}/Mk/bsd.linux-rpm.mk"
 .endif
 
 .if defined(USE_LINUX_APPS)
+BROKEN=		Linux Compat Apps disabled in favor of apt-get
 .include "${PORTSDIR}/Mk/bsd.linux-apps.mk"
 .endif
 
