@@ -36,7 +36,7 @@ if [ $? -eq 0 ] ; then
 fi
 
 # Enable loading the nvidia binary driver
-grep '^nvidia_load="YES"' /boot/loader.conf >/dev/null 2>/dev/null
+grep -q '^kldload_nvidia=' /etc/rc.conf
 if [ $? -ne 0 ] ; then
   echo 'kldload_nvidia="nvidia-modeset nvidia"' >>/etc/rc.conf
 fi
