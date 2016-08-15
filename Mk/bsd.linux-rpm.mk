@@ -98,6 +98,7 @@ MASTER_SITE_SUBDIR=	centos/5/os/i386/Packages/
 _SRC_GROUP=:SOURCE
 MASTER_SITES+=  http://vault.centos.org/%SUBDIR%/:SOURCE
 MASTER_SITE_SUBDIR+=	${LINUX_DIST_VER}/os/Source/SPackages/:SOURCE
+MASTER_SITE_SUBDIR+=	${LINUX_DIST_VER}/updates/Source/SPackages/:SOURCE
 .		endif
 .	endif
 .endif
