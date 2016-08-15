@@ -11,7 +11,7 @@ COMMENT=	Qt scripting module
 
 BROKEN_powerpc64=	Does not build
 
-USES=		pkgconfig
+USES=		pkgconfig gmake
 USE_QT4=	qmake_build moc_build corelib
 QT_DIST=	yes
 
