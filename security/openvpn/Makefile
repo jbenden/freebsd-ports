@@ -53,7 +53,7 @@ X509ALTUSERNAME_CONFIGURE_ENABLE=	x509-alt-username
 X509ALTUSERNAME_PREVENTS=	POLARSSL
 X509ALTUSERNAME_PREVENTS_MSG=	OpenVPN ${DISTVERSION} cannot use --x509-username-field with PolarSSL. Disable X509ALTUSERNAME, or use OpenSSL instead
 
-OPENSSL_USE=		openssl=yes
+OPENSSL_USES=		ssl
 OPENSSL_CONFIGURE_ON=	--with-crypto-library=openssl
 
 # Pin the libmbedtls version because the 2.3.x port can't work with .so.10 or
@@ -76,6 +76,8 @@ LIB_DEPENDS+=		liblzo2.so:archivers/lzo2
 PORTDOCS=		*
 PORTEXAMPLES=		*
 
+TEST_TARGET=		check
+
 pre-configure:
 .ifdef (LOG_OPENVPN)
 	@${ECHO} "Building with LOG_OPENVPN=${LOG_OPENVPN}"
@@ -92,13 +94,6 @@ post-configure:
 	${REINPLACE_CMD} '/^CFLAGS =/s/$$/ -fPIC/' \
 	    ${WRKSRC}/src/plugins/auth-pam/Makefile \
 	    ${WRKSRC}/src/plugins/down-root/Makefile
-
-.if !defined(WITHOUT_CHECK)
-post-build:
-	@# self-tests here
-	@${ECHO} ; ${ECHO} "### Note that you can skip these lengthy selftests with WITHOUT_CHECK=yes ###" ; ${ECHO}
-	cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} ${MAKE} ${MAKE_FLAGS} ${MAKEFILE} ${_MAKE_JOBS} ${MAKE_ARGS} check
-.endif
 
 post-install:
 	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/openvpn/plugins/openvpn-plugin-auth-pam.so
