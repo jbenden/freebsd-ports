@@ -1,18 +1,5 @@
-From 115f658ee2000a4cdcc13e999da50b3634c6a907 Mon Sep 17 00:00:00 2001
-From: Remi Gacogne <remi.gacogne@powerdns.com>
-Date: Fri, 12 Aug 2016 09:52:08 +0200
-Subject: [PATCH] Fix build with LibreSSL, for which OPENSSL_VERSION_NUMBER is
- irrelevant
-
----
- pdns/dns_random.cc     | 4 ++--
- pdns/opensslsigners.cc | 2 +-
- 2 files changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/pdns/dns_random.cc b/pdns/dns_random.cc
-index 623e3aa..4a8ef82 100644
---- pdns/dns_random.cc.orig
-+++ pdns/dns_random.cc
+--- dns_random.cc.orig	2016-07-29 14:32:32 UTC
++++ dns_random.cc
 @@ -2,7 +2,7 @@
  #include "config.h"
  #endif
@@ -31,10 +18,8 @@ index 623e3aa..4a8ef82 100644
    CRYPTO_ctr128_encrypt((const unsigned char*)&g_in, (unsigned char*) &out, sizeof(g_in), &aes_key, g_counter, g_stream, &g_offset, (block128_f) AES_encrypt);
  #else
    AES_ctr128_encrypt((const unsigned char*)&g_in, (unsigned char*) &out, sizeof(g_in), &aes_key, g_counter, g_stream, &g_offset);
-diff --git a/pdns/opensslsigners.cc b/pdns/opensslsigners.cc
-index 3496992..18b78cd 100644
---- pdns/opensslsigners.cc.orig
-+++ pdns/opensslsigners.cc
+--- opensslsigners.cc.orig	2016-07-29 14:32:32 UTC
++++ opensslsigners.cc
 @@ -12,7 +12,7 @@
  #include "opensslsigners.hh"
  #include "dnssecinfra.hh"
