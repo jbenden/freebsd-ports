@@ -45,6 +45,7 @@
     SUBDIR += enscript-letterdj
     SUBDIR += epson-inkjet-printer-escpr
     SUBDIR += epsonepl
+    SUBDIR += fig2dev
     SUBDIR += flpsed
     SUBDIR += font-amsfonts
     SUBDIR += font2svg
@@ -231,7 +232,6 @@
     SUBDIR += splix
     SUBDIR += system-config-printer
     SUBDIR += t1utils
-    SUBDIR += tex
     SUBDIR += tex-aleph
     SUBDIR += tex-basic-engines
     SUBDIR += tex-dvipdfmx

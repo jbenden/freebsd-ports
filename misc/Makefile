@@ -73,6 +73,7 @@
     SUBDIR += dvorakng
     SUBDIR += e2fsprogs-libblkid
     SUBDIR += e2fsprogs-libuuid
+    SUBDIR += elixir-mime
     SUBDIR += elixir-uuid
     SUBDIR += elscreen
     SUBDIR += erlang-mimerl
@@ -413,9 +414,10 @@
     SUBDIR += py-osd
     SUBDIR += py-pexpect
     SUBDIR += py-powerline-status
-    SUBDIR += py-pyprind
     SUBDIR += py-progressbar
     SUBDIR += py-progressbar231
+    SUBDIR += py-pyfiglet
+    SUBDIR += py-pyprind
     SUBDIR += py-qt4-demo
     SUBDIR += py-qt4-doc
     SUBDIR += py-qt5-demo
@@ -456,13 +458,13 @@
     SUBDIR += rubygem-vpim
     SUBDIR += rump
     SUBDIR += saaghar
+    SUBDIR += seabios
     SUBDIR += sent
     SUBDIR += seq2
     SUBDIR += shared-mime-info
     SUBDIR += shc
     SUBDIR += shuffle
     SUBDIR += shuffle-db
-    SUBDIR += seabios
     SUBDIR += since
     SUBDIR += skyutils
     SUBDIR += sloccount

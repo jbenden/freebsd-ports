@@ -62,8 +62,6 @@ CONFIGURE_ARGS+=	--disable-multilib
 
 .if ${ARCH} == "amd64"
 CONFIGURE_TARGET=	x86_64-portbld-${OPSYS:tl}${OSREL}
-.else
-CONFIGURE_TARGET=	${ARCH}-portbld-${OPSYS:tl}${OSREL}
 .endif
 
 .if ${ARCH} == powerpc64
@@ -103,7 +101,10 @@ CONFIGURE_ARGS+=--disable-nls \
 		${ICONV_CONFIGURE_ARG} \
 		--with-pkgversion="FreeBSD Ports Collection" \
 		--with-system-zlib
-MAKE_ARGS+=	MAKEINFOFLAGS="--no-split"
+# On FreeBSD 11 and above AWK uses the locale's collating order which
+# runs into a bug in GCC (PR 211742).
+MAKE_ARGS+=	MAKEINFOFLAGS="--no-split" \
+		AWK="${SETENV} LC_ALL=C ${AWK:Q}"
 USE_LDCONFIG=	${TARGLIB}
 PLIST_SUB=	GCC_VERSION=${GCC_VERSION} \
 		GNU_HOST=${CONFIGURE_TARGET} \

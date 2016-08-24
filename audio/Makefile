@@ -34,6 +34,7 @@
     SUBDIR += asunder
     SUBDIR += atunes
     SUBDIR += aubio
+    SUBDIR += aucatctl
     SUBDIR += audacity
     SUBDIR += audex
     SUBDIR += audiere
@@ -122,6 +123,7 @@
     SUBDIR += etcd
     SUBDIR += etktab
     SUBDIR += exaile
+    SUBDIR += exaile-devel
     SUBDIR += extace
     SUBDIR += ezstream
     SUBDIR += faac
@@ -370,6 +372,7 @@
     SUBDIR += libechonest
     SUBDIR += libfilteraudio
     SUBDIR += libfishsound
+    SUBDIR += libg722
     SUBDIR += libgig
     SUBDIR += libgme
     SUBDIR += libgpod
@@ -608,6 +611,7 @@
     SUBDIR += pragha
     SUBDIR += puddletag
     SUBDIR += pulseaudio
+    SUBDIR += pulseaudio-module-sndio
     SUBDIR += py-al
     SUBDIR += py-ao
     SUBDIR += py-apetag
@@ -633,10 +637,12 @@
     SUBDIR += py-pyliblo
     SUBDIR += py-shout
     SUBDIR += py-soundcloud
+    SUBDIR += py-speechrecognition
     SUBDIR += py-speex
     SUBDIR += py-tagpy
     SUBDIR += py-vorbis
     SUBDIR += py-xmms2
+    SUBDIR += py3-mutagen
     SUBDIR += py3-pylast
     SUBDIR += pytone
     SUBDIR += qjackctl
@@ -696,6 +702,7 @@
     SUBDIR += smasher
     SUBDIR += snack
     SUBDIR += snd
+    SUBDIR += sndio
     SUBDIR += solfege
     SUBDIR += sonata
     SUBDIR += sooperlooper

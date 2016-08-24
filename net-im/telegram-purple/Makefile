@@ -2,8 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	telegram-purple
-PORTVERSION=	1.2.6
-PORTREVISION=	1
+PORTVERSION=	1.3.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	net-im
 
@@ -15,7 +14,8 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 
 BUILD_DEPENDS=	pidgin:net-im/pidgin
 RUN_DEPENDS=	pidgin:net-im/pidgin
-LIB_DEPENDS=	libgcrypt.so:security/libgcrypt
+LIB_DEPENDS=	libgcrypt.so:security/libgcrypt \
+		libwebp.so:graphics/webp
 
 OPTIONS_DEFINE=	NLS
 OPTIONS_SUB=	yes
@@ -24,12 +24,11 @@ USES=		execinfo gettext gmake pkgconfig tar:xz
 USE_GNOME=	glib20 libxml2
 USE_GCC=	yes
 GNU_CONFIGURE=	yes
-LIBS+=		-lexecinfo -lm
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	majn:DEFAULT,tgl vysheng:tlparser
 GH_PROJECT=	tgl:tgl tl-parser:tlparser
-GH_TAGNAME?=	bec66c2:tgl 1659d87:tlparser
+GH_TAGNAME?=	624cf5a:tgl 36bf190:tlparser
 
 BROKEN_sparc64=	cannot compile: assertion fails
 

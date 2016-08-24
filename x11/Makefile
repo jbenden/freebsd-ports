@@ -180,6 +180,7 @@
     SUBDIR += libxkbui
     SUBDIR += libxklavier
     SUBDIR += libxshmfence
+    SUBDIR += linux-c6-pixman
     SUBDIR += linux-c6-xorg-libs
     SUBDIR += linux-f10-xorg-libs
     SUBDIR += listres
@@ -242,6 +243,7 @@
     SUBDIR += qt4-inputmethods
     SUBDIR += qt5-qev
     SUBDIR += qt5-x11extras
+    SUBDIR += qterminal
     SUBDIR += qxkb
     SUBDIR += randrproto
     SUBDIR += recordproto
@@ -267,6 +269,7 @@
     SUBDIR += setlayout
     SUBDIR += setxkbmap
     SUBDIR += simdock
+    SUBDIR += simplestroke
     SUBDIR += sisctrl
     SUBDIR += slim
     SUBDIR += slock
@@ -321,6 +324,7 @@
     SUBDIR += xautomation
     SUBDIR += xbacklight
     SUBDIR += xballoon
+    SUBDIR += xbanish
     SUBDIR += xbanner
     SUBDIR += xbelld
     SUBDIR += xbiff

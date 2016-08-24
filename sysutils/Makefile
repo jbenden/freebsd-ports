@@ -455,6 +455,7 @@
     SUBDIR += ioping
     SUBDIR += ipa
     SUBDIR += ipad_charge
+    SUBDIR += ipdbtools
     SUBDIR += ipfs-go
     SUBDIR += ipmitool
     SUBDIR += ipsc
@@ -511,6 +512,7 @@
     SUBDIR += libcdio
     SUBDIR += libcdio-paranoia
     SUBDIR += libchk
+    SUBDIR += libcpuid
     SUBDIR += libfvde
     SUBDIR += libgksu
     SUBDIR += libieee1284
@@ -539,6 +541,7 @@
     SUBDIR += logtool
     SUBDIR += logwatch
     SUBDIR += lookat
+    SUBDIR += lr
     SUBDIR += lsof
     SUBDIR += ltrace
     SUBDIR += luckybackup
@@ -639,6 +642,7 @@
     SUBDIR += ncdu
     SUBDIR += nepomuk-core
     SUBDIR += nepomuk-widgets
+    SUBDIR += nfcutils
     SUBDIR += nfsping
     SUBDIR += nitrogen
     SUBDIR += no-login
@@ -863,6 +867,7 @@
     SUBDIR += py-stdiff
     SUBDIR += py-supervisor
     SUBDIR += py-tmuxp
+    SUBDIR += py-uptime
     SUBDIR += py-zdaemon
     SUBDIR += py-zfs
     SUBDIR += pydf
@@ -888,6 +893,7 @@
     SUBDIR += rdiff-backup
     SUBDIR += rdiff-backup-devel
     SUBDIR += rdup
+    SUBDIR += read-edid
     SUBDIR += realsync
     SUBDIR += recoverdm
     SUBDIR += reed
@@ -1106,6 +1112,7 @@
     SUBDIR += tuptime
     SUBDIR += tw_cli
     SUBDIR += tzdialog
+    SUBDIR += u-boot-a13-olinuxino
     SUBDIR += u-boot-bananapi
     SUBDIR += u-boot-bananapim2
     SUBDIR += u-boot-beaglebone
@@ -1114,6 +1121,7 @@
     SUBDIR += u-boot-cubox-hummingboard
     SUBDIR += u-boot-duovero
     SUBDIR += u-boot-olimex-a20-som-evb
+    SUBDIR += u-boot-olinuxino-lime
     SUBDIR += u-boot-orangepi-one
     SUBDIR += u-boot-pandaboard
     SUBDIR += u-boot-pine64
@@ -1208,6 +1216,7 @@
     SUBDIR += xcdroast
     SUBDIR += xcpustate
     SUBDIR += xdu
+    SUBDIR += xe
     SUBDIR += xe-guest-utilities
     SUBDIR += xen-guest-tools
     SUBDIR += xen-tools

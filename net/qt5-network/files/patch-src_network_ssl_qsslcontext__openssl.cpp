@@ -1,3 +1,5 @@
+Obtained from: https://github.com/libressl-portable/openbsd/issues/33
+
 From 81494e67eccba04fc3fe554d76a9ca6fe7f2250e Mon Sep 17 00:00:00 2001
 From: hasufell <hasufell@gentoo.org>
 Date: Sat, 10 Oct 2015 01:15:01 +0200
@@ -5,13 +7,7 @@ Subject: [PATCH] Fix compilation with libressl
 
 By additionally checking for defined(SSL_CTRL_SET_CURVES), which
 is defined in openssl, but not in libressl.
----
- src/network/ssl/qsslcontext_openssl.cpp | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/src/network/ssl/qsslcontext_openssl.cpp b/src/network/ssl/qsslcontext_openssl.cpp
-index b88ab54..cfc4f6d 100644
---- src/network/ssl/qsslcontext_openssl.cpp.orig
+--- src/network/ssl/qsslcontext_openssl.cpp.orig	2015-10-13 04:35:28 UTC
 +++ src/network/ssl/qsslcontext_openssl.cpp
 @@ -338,7 +338,7 @@ init_context:
  
@@ -31,7 +27,3 @@ index b88ab54..cfc4f6d 100644
          {
              // specific curves requested, but not possible to set -> error
              sslContext->errorStr = msgErrorSettingEllipticCurves(QSslSocket::tr("OpenSSL version too old, need at least v1.0.2"));
--- 
-2.6.0
-
-
